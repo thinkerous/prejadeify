@@ -1,0 +1,27 @@
+{
+  "name": "prejadeify",
+  "description": "A browserify transform for rendering .jade files",
+  "keywords": [
+    "browserify",
+    "jade",
+    "templates",
+    "templating",
+    "transform"
+  ],
+  "version": "0.0.1",
+  "author": "AZ <aaron@thinkero.us>",
+  "license": "WTFPL",
+  "repository": "thinkerous/prejadeify",
+  "main": "index.js",
+  "dependencies": {
+    "through": "^2.3.6"
+  },
+  "peerDependencies": {
+    "browserify": ">= 2.4.0 < 7",
+    "jade": "^1.4.0"
+  },
+  "devDependencies": {
+    "browserify": "^6.2.0",
+    "jade": "^1.7.0"
+  }
+}
