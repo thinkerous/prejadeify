@@ -1,10 +1,19 @@
-var through = require('through');
-var jade = require('jade');
+var through = require('through')
+  , jade = require('jade')
+  , assign = require('object-assign');
 
 module.exports = function prejadeify(file, options) {
   if (!/\.jade$/i.test(file)) {
     return through();
   }
+
+  var jadeOptions = {
+    filename:file,
+    staticUrl: _staticUrl(file, options.prefix)
+  };
+
+  if (options)
+    assign(jadeOptions, options);
 
   var data = '';
 
@@ -15,7 +24,7 @@ module.exports = function prejadeify(file, options) {
   function end() {
     var _this = this;
 
-    jade.render(data, {filename:file, staticUrl: _staticUrl(file, options.prefix)}, function(err, html) {
+    jade.render(data, jadeOptions, function(err, html) {
       if (err) {
         _this.emit('error', err);
         return;
@@ -47,7 +56,7 @@ function _staticUrl (file, prefix){
     var resolve = require('url').resolve;
 
     if (typeof prefix === "undefined") {
-      throw new Error("staticUrl used but options.urlPrefix not defined");
+      throw new Error("staticUrl used but options.prefix not defined");
     }
 
     // rewrite URLs

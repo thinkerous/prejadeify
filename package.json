@@ -14,7 +14,8 @@
   "repository": "thinkerous/prejadeify",
   "main": "index.js",
   "dependencies": {
-    "through": "^2.3.6"
+    "through": "^2.3.6",
+    "object-assign": "^1.0.0"
   },
   "peerDependencies": {
     "browserify": ">= 2.4.0 < 7",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "browserify": "^6.2.0",
-    "jade": "^1.7.0"
+    "jade": "^1.7.0",
+    "object-assign": "^1.0.0"
   }
 }

@@ -27,6 +27,10 @@ With url prefix option:
 
     bundler.transform(prejadeify, {prefix: config.cdnUrl});
 
+With other Jade locals (`staticUrl` can be overwritten here):
+
+    bundler.transform(prejadeify, {prefix: config.cdnUrl, ...jadeLocals});
+
 For command line Browserify (untested):
 
     browserify -t prejadeify app.js -o bundle.js
