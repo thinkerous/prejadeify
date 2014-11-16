@@ -63,7 +63,7 @@ function _staticUrl (file, prefix){
     if (_isData(uri)) return uri;
     if (_isAbsolute(uri)) return uri;
     if (_isTemplate(uri)) return uri;
-    uri = resolve(path.relative(__dirname, file), uri); // uri = client/projects/images/default.png
+    uri = resolve(path.relative(__dirname+"/../..", file), uri); // uri = client/projects/images/default.png
     uri = resolve(prefix, uri); // uri = /assets/client/projects/images/default.png or cdn prefixed
     return uri;
   }
